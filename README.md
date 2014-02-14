@@ -7,7 +7,7 @@ To Guice-up your  it for your project, you'll need to do the following:
 
 1. Create your injectable UI, by extending ScopedUI:
 
-		@Theme("dashboard")
+		@Theme("runo")
 		public class GuicedUI extends ScopedUI  {
 
 			@Inject
@@ -34,11 +34,12 @@ To Guice-up your  it for your project, you'll need to do the following:
 		
 
 3. Create the listener which bootstraps the whole web app. Here you tell the UIScopeModule about your GuicedUI created in step 1.
+See https://code.google.com/p/google-guice/wiki/Servlets for full instructions and background.
 
 		public class GuiceContextListener extends GuiceServletContextListener {
 			@Override
 			protected Injector getInjector() {
-				return Guice.createInjector(new UIScopeModule(GuicedUI.class), new AppModule());
+				return Guice.createInjector(new UIScopeModule(GuicedUI.class), new GuicedServletModule());
 			}
 		}
 		

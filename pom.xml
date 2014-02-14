@@ -10,66 +10,18 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- Vaadin stuff -->
-
 		<version.vaadin>7.1.10</version.vaadin>
-
-		<!-- Message Bus -->
-
-		<version.mbassador>1.1.3</version.mbassador>
-
-		<!-- Google stuff -->
 
 		<version.guice-servlet>3.0</version.guice-servlet>
 		<version.google-guava>13.0.1</version.google-guava>
-		<version.mycila-guice>2.10.ga</version.mycila-guice>
-		<version.mycila-testing-guice>2.9.ga</version.mycila-testing-guice>
-		<version.jsr305>1.3.9</version.jsr305>
-
-		<!-- Validation -->
 
 		<version.validation-api>1.0.0.GA</version.validation-api>
 
-		<!-- Servlet API -->
-
 		<version.servlet-api>2.5</version.servlet-api>
-
-		<!-- Logging -->
 
 		<version.slf4j>1.7.2</version.slf4j>
 
-		<!-- Class Utils -->
 
-		<version.reflections>0.9.8</version.reflections>
-		<version.javassist>3.15.0-GA</version.javassist>
-
-		<!-- Testing stuff -->
-
-		<version.junit>4.10</version.junit>
-		<version.mockito>1.9.5</version.mockito>
-		<version.junice>1.3</version.junice>
-		<version.logback>1.0.9</version.logback>
-
-		<!-- Plugins -->
-		<version.maven-compiler-plugin>3.0</version.maven-compiler-plugin>
-
-		<!-- Plugins
-		<version.maven-release-plugin>2.4</version.maven-release-plugin>
-		<version.maven-surefire-plugin>2.13</version.maven-surefire-plugin>
-		<version.maven-jar-plugin>2.4</version.maven-jar-plugin>
-		<version.maven-source-plugin>2.2.1</version.maven-source-plugin>
-		<version.maven-javadoc-plugin>2.9</version.maven-javadoc-plugin>
-
-
-		<version.maven-bundle-plugin>2.1.0</version.maven-bundle-plugin>
-		<version.maven-resources-plugin>2.6</version.maven-resources-plugin>
-		<version.maven-license-plugin>1.7.0</version.maven-license-plugin>
-		<version.maven-changelog-plugin>2.2</version.maven-changelog-plugin>
-		<version.maven-gpg-plugin>1.4</version.maven-gpg-plugin>
-		<maven-compiler-plugin.source>1.6</maven-compiler-plugin.source>
-		<maven-compiler-plugin.target>1.6</maven-compiler-plugin.target>
-		 -->
-		
 	</properties>
 
 	<build>
@@ -87,7 +39,7 @@
 	</build>
 	<dependencies>
 
-		<!-- Vaadin stuff -->
+		<!-- Vaadin -->
 
 		<dependency>
 			<groupId>com.vaadin</groupId>
@@ -126,7 +78,7 @@
 		</dependency>
 
 
-		<!-- Guice Stuff -->
+		<!-- Guice -->
 
 		<dependency>
 			<groupId>com.google.inject.extensions</groupId>
