@@ -10,3 +10,4 @@ target/
 bin/
 
 .DS_store
+MANIFEST.MF

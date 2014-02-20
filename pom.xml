@@ -3,7 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.vaadin.addons</groupId>
 	<artifactId>v-guice</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<version>0.1.0</version>
+	<organization>
+		<name>v-guice-team</name>
+	</organization>
 
 	<properties>
 		<module.encoding>UTF-8</module.encoding>
@@ -11,21 +14,49 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<version.vaadin>7.1.10</version.vaadin>
-
 		<version.guice-servlet>3.0</version.guice-servlet>
 		<version.google-guava>13.0.1</version.google-guava>
 
 		<version.validation-api>1.0.0.GA</version.validation-api>
-
 		<version.servlet-api>2.5</version.servlet-api>
-
 		<version.slf4j>1.7.2</version.slf4j>
-
 
 	</properties>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<!-- Implementation-Title and Implementation-Version come from the 
+								POM by default -->
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<!-- Package format version - do not change -->
+							<Vaadin-Package-Version>1</Vaadin-Package-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -35,12 +66,26 @@
 				</configuration>
 			</plugin>
 
+			<!-- This creates a zip file of jar and sources jar. When publishing in the 
+				Directory this makes sources available to maven users automatically. We could 
+				also use this to package required dependencies for those poor developer souls 
+				that still don't know how to use a build system that supports transient dependencies... -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<finalName>${project.artifactId}-${project.version}</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
 
 		<!-- Vaadin -->
-
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
@@ -70,16 +115,14 @@
 		</dependency>
 
 		<!-- Logging -->
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${version.slf4j}</version>
+			<scope>provided</scope>
 		</dependency>
 
-
 		<!-- Guice -->
-
 		<dependency>
 			<groupId>com.google.inject.extensions</groupId>
 			<artifactId>guice-servlet</artifactId>
