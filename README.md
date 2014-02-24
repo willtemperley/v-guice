@@ -60,7 +60,7 @@ You need to tell your servlet container about the listener in your web.xml file 
 			<listener-class>com.example.GuiceContextListener</listener-class>
 		</listener>
   
-
+Note that if you are using servlet 3.0 you can annotate your GuiceServletContextListener subclass with @WebListener instead of specifying it in web.xml. 
 		
 Henceforth, any objects injected into your UI can also have their dependencies injected. These can be scoped to the UI level or higher (e.g. Session scope or Singleton).
 UIScope essentially means "Browser window scope". 
