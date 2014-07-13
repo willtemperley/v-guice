@@ -15,7 +15,6 @@
 
 		<version.vaadin>7.2.4</version.vaadin>
 		<version.guice-servlet>3.0</version.guice-servlet>
-		<version.google-guava>17000.0</version.google-guava>
 
 		<version.validation-api>1.0.0.GA</version.validation-api>
 		<version.servlet-api>2.5</version.servlet-api>
