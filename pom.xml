@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.vaadin.addons</groupId>
 	<artifactId>v-guice</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<organization>
 		<name>v-guice-team</name>
 	</organization>
@@ -13,7 +13,7 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<version.vaadin>7.2.4</version.vaadin>
+		<version.vaadin>7.3.0.beta1</version.vaadin>
 		<version.guice-servlet>3.0</version.guice-servlet>
 
 		<version.validation-api>1.0.0.GA</version.validation-api>
