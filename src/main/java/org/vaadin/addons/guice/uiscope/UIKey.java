@@ -55,7 +55,7 @@ public class UIKey implements Comparable<UIKey> {
 
     @Override
     public int hashCode() {
-        return (int) (counter ^ (counter >>> 32));
+        return counter ^ (counter >>> 32);
     }
 
     @Override

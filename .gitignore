@@ -1,6 +1,7 @@
 
 .classpath
 
+
 .project
 
 .settings/
@@ -10,4 +11,7 @@ target/
 bin/
 
 .DS_store
-MANIFEST.MF
+
+.idea/**
+v-guice.iml
+target/**

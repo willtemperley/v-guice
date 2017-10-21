@@ -28,6 +28,7 @@ import com.vaadin.server.UICreateEvent;
 import com.vaadin.server.UIProvider;
 import com.vaadin.ui.UI;
 import com.vaadin.util.CurrentInstance;
+import org.vaadin.addons.guice.uiscope.UIScoped;
 
 /**
  * A Vaadin UI provider which supports the use of Guice scoped UI (see {@link UIScoped}). If you do not need UIScope,

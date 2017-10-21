@@ -1,140 +1,147 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.vaadin.addons</groupId>
-	<artifactId>v-guice</artifactId>
-	<version>2.0-SNAPSHOT</version>
-	<organization>
-		<name>v-guice-team</name>
-	</organization>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.vaadin.addons</groupId>
+    <artifactId>v-guice</artifactId>
+    <version>2.0</version>
+    <organization>
+        <name>v-guice-team</name>
+    </organization>
 
-	<properties>
-		<module.encoding>UTF-8</module.encoding>
+    <properties>
+        <module.encoding>UTF-8</module.encoding>
 
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<version.vaadin>8.1.4</version.vaadin>
-		<version.guice-servlet>4.0</version.guice-servlet>
+        <version.vaadin>8.1.4</version.vaadin>
+        <version.guice-servlet>4.0</version.guice-servlet>
 
-		<version.validation-api>1.0.0.GA</version.validation-api>
-		<version.slf4j>1.7.2</version.slf4j>
+        <version.validation-api>1.0.0.GA</version.validation-api>
+        <version.slf4j>1.7.2</version.slf4j>
 
-	</properties>
+    </properties>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.1</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<!-- Implementation-Title and Implementation-Version come from the 
-								POM by default -->
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-						</manifest>
-						<manifestEntries>
-							<!-- Package format version - do not change -->
-							<Vaadin-Package-Version>1</Vaadin-Package-Version>
-						</manifestEntries>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <!-- Implementation-Title and Implementation-Version come from the
+                                POM by default -->
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <!-- Package format version - do not change -->
+                            <Vaadin-Package-Version>1</Vaadin-Package-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
 
-			<!-- This creates a zip file of jar and sources jar. When publishing in the 
-				Directory this makes sources available to maven users automatically. We could 
-				also use this to package required dependencies for those poor developer souls 
-				that still don't know how to use a build system that supports transient dependencies... -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<finalName>${project.artifactId}-${project.version}</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<descriptors>
-						<descriptor>assembly.xml</descriptor>
-					</descriptors>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<dependencies>
+            <!-- This creates a zip file of jar and sources jar. When publishing in the
+                Directory this makes sources available to maven users automatically. We could
+                also use this to package required dependencies for those poor developer souls
+                that still don't know how to use a build system that supports transient dependencies... -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>${project.artifactId}-${project.version}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
 
-		<!-- Vaadin -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-server</artifactId>
-			<version>${version.vaadin}</version>
-			<scope>provided</scope>
-		</dependency>
+        <!-- Vaadin -->
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-server</artifactId>
+            <version>${version.vaadin}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiled</artifactId>
-			<version>${version.vaadin}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client-compiled</artifactId>
+            <version>${version.vaadin}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client</artifactId>
-			<version>${version.vaadin}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client</artifactId>
+            <version>${version.vaadin}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-themes</artifactId>
-			<version>${version.vaadin}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-themes</artifactId>
+            <version>${version.vaadin}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<!-- Logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${version.slf4j}</version>
-			<scope>provided</scope>
-		</dependency>
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<!-- Guice -->
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-servlet</artifactId>
-			<version>${version.guice-servlet}</version>
-		</dependency>
+        <!-- Guice -->
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+            <version>${version.guice-servlet}</version>
+        </dependency>
 
-		<!-- Servlet api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
-
+        <!-- Servlet api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>
