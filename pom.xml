@@ -16,7 +16,6 @@
         <version.vaadin>8.1.4</version.vaadin>
         <version.guice-servlet>4.0</version.guice-servlet>
 
-        <version.validation-api>1.0.0.GA</version.validation-api>
         <version.slf4j>1.7.2</version.slf4j>
 
     </properties>

@@ -1,17 +1,9 @@
-
 .classpath
-
-
 .project
-
 .settings/
-
 target/
-
 bin/
-
 .DS_store
-
 .idea/**
 v-guice.iml
 target/**

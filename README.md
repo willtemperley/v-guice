@@ -1,7 +1,9 @@
 v-guice
 =======
 
-This project provides the machinery necessary to create Vaadin 7 applications using Guice for dependency injection.  This project is really a distilled version of https://github.com/davidsowerby/v7/.
+This project provides the machinery necessary to create Vaadin applications using Guice for dependency injection.  This project is really a distilled version of https://github.com/davidsowerby/v7/.
+
+Version 2.0 now supports Vaadin 8.1+.
 
 To Guice-up your Vaadin project, you'll need to do the following:
 
