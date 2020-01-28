@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.vaadin.addons</groupId>
     <artifactId>v-guice</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
     <organization>
         <name>v-guice-team</name>
     </organization>
@@ -13,8 +13,8 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <version.vaadin>8.1.4</version.vaadin>
-        <version.guice-servlet>4.0</version.guice-servlet>
+        <version.vaadin>8.9.4</version.vaadin>
+        <version.guice-servlet>4.2.2</version.guice-servlet>
 
         <version.slf4j>1.7.2</version.slf4j>
 
@@ -132,6 +132,7 @@
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-servlet</artifactId>
             <version>${version.guice-servlet}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Servlet api -->
