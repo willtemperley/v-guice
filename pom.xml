@@ -13,7 +13,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <version.vaadin>8.9.4</version.vaadin>
+        <version.vaadin>8.12.4</version.vaadin>
         <version.guice-servlet>4.2.2</version.guice-servlet>
 
         <version.slf4j>1.7.2</version.slf4j>
